@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -19,10 +18,11 @@ import java.util.ArrayList;
  */
 
 public class CardViewMotorAdapter extends RecyclerView.Adapter<CardViewMotorAdapter.CardViewViewHolder> {
-    private ArrayList<Motor>listMotor;
+    public Button btnDetail, btnBuy;
+    private ArrayList<Motor> listMotor;
     private Context context;
 
-    public CardViewMotorAdapter(Context context){
+    public CardViewMotorAdapter(Context context) {
         this.context = context;
     }
 
@@ -30,12 +30,12 @@ public class CardViewMotorAdapter extends RecyclerView.Adapter<CardViewMotorAdap
         return listMotor;
     }
 
-    public void setListMotor(ArrayList<Motor> listMotor){
+    public void setListMotor(ArrayList<Motor> listMotor) {
         this.listMotor = listMotor;
     }
 
     @Override
-    public CardViewViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+    public CardViewViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cardview_motor, parent, false);
         CardViewViewHolder viewHolder = new CardViewViewHolder(view);
         return viewHolder;
@@ -53,22 +53,6 @@ public class CardViewMotorAdapter extends RecyclerView.Adapter<CardViewMotorAdap
 
         holder.tvName.setText(m.getName());
         holder.tvRemarks.setText(m.getRemarks());
-
-        holder.btnFavorite.setOnClickListener(new CustomOnClickListener(position, new CustomOnClickListener.OnItemClickCallback() {
-
-            @Override
-            public void onItemClicked(View view, int position) {
-                Toast.makeText(context, "Favorite "+getListMotor().get(position).getName(), Toast.LENGTH_SHORT).show();
-            }
-        }));
-
-        holder.btnShare.setOnClickListener(new CustomOnClickListener(position, new CustomOnClickListener.OnItemClickCallback() {
-
-            @Override
-            public void onItemClicked(View view, int position) {
-                Toast.makeText(context, "Detail " + getListMotor().get(position).getName(), Toast.LENGTH_SHORT).show();
-            }
-        }));
     }
 
     @Override
@@ -76,17 +60,15 @@ public class CardViewMotorAdapter extends RecyclerView.Adapter<CardViewMotorAdap
         return getListMotor().size();
     }
 
-    public class CardViewViewHolder extends RecyclerView.ViewHolder{
+    public class CardViewViewHolder extends RecyclerView.ViewHolder {
         ImageView imgPhoto;
         TextView tvName, tvRemarks;
-        Button btnFavorite, btnShare;
+
         public CardViewViewHolder(View itemView) {
             super(itemView);
-            imgPhoto = (ImageView)itemView.findViewById(R.id.img_item_photo);
-            tvName = (TextView)itemView.findViewById(R.id.tv_item_name);
-            tvRemarks = (TextView)itemView.findViewById(R.id.tv_item_remarks);
-            btnFavorite = (Button)itemView.findViewById(R.id.btn_set_favorite);
-            btnShare = (Button)itemView.findViewById(R.id.btn_set_share);
+            imgPhoto = (ImageView) itemView.findViewById(R.id.img_item_photo);
+            tvName = (TextView) itemView.findViewById(R.id.tv_item_name);
+            tvRemarks = (TextView) itemView.findViewById(R.id.tv_item_remarks);
         }
     }
 }

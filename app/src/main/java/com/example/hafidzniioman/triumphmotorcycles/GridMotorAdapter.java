@@ -17,48 +17,47 @@ import java.util.ArrayList;
 
 public class GridMotorAdapter extends RecyclerView.Adapter<GridMotorAdapter.GridViewHolder> {
 
-        private Context context;
-        private ArrayList<Motor> listMotor;
+    private Context context;
+    private ArrayList<Motor> listMotor;
 
-        public ArrayList<Motor> getListMotor() {
-            return listMotor;
-        }
+    public GridMotorAdapter(Context context) {
+        this.context = context;
+    }
 
-        public void setListMotor(ArrayList<Motor> listMotor) {
-            this.listMotor = listMotor;
-        }
+    public ArrayList<Motor> getListMotor() {
+        return listMotor;
+    }
 
-        public GridMotorAdapter(Context context) {
-            this.context = context;
-        }
+    public void setListMotor(ArrayList<Motor> listMotor) {
+        this.listMotor = listMotor;
+    }
 
-        @Override
-        public GridViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid_motor, parent, false);
-            GridViewHolder gridViewHolder = new GridViewHolder(view);
-            return gridViewHolder;
-        }
+    @Override
+    public GridViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid_motor, parent, false);
+        return new GridViewHolder(view);
+    }
 
-        @Override
-        public void onBindViewHolder(GridViewHolder holder, int position) {
-            Glide.with(context)
-                    .load(getListMotor().get(position).getPhoto())
-                    .override(350, 550)
-                    .into(holder.imgPhoto);
-        }
+    @Override
+    public void onBindViewHolder(GridViewHolder holder, int position) {
+        Glide.with(context)
+                .load(getListMotor().get(position).getPhoto())
+                .override(350, 550)
+                .into(holder.imgPhoto);
+    }
 
-        @Override
-        public int getItemCount() {
-            return getListMotor().size();
-        }
+    @Override
+    public int getItemCount() {
+        return getListMotor().size();
+    }
 
-        public class GridViewHolder extends RecyclerView.ViewHolder {
-            ImageView imgPhoto;
+    public class GridViewHolder extends RecyclerView.ViewHolder {
+        ImageView imgPhoto;
 
-            public GridViewHolder(View itemView) {
-                super(itemView);
-                imgPhoto = (ImageView) itemView.findViewById(R.id.img_item_photo);
-            }
+        public GridViewHolder(View itemView) {
+            super(itemView);
+            imgPhoto = (ImageView) itemView.findViewById(R.id.img_item_photo);
         }
     }
+}
 

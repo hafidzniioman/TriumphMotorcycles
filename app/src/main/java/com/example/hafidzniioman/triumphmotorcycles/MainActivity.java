@@ -1,7 +1,8 @@
 package com.example.hafidzniioman.triumphmotorcycles;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,13 +15,13 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView rvCategory;
-    private ArrayList<Motor>list;
+    private ArrayList<Motor> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        rvCategory = (RecyclerView)findViewById(R.id.rv_category);
+        rvCategory = (RecyclerView) findViewById(R.id.rv_category);
         rvCategory.setHasFixedSize(true);
 
         list = new ArrayList<>();
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         showRecycleList();
     }
 
-    private void showRecycleList(){
+    private void showRecycleList() {
         rvCategory.setLayoutManager(new LinearLayoutManager(this));
         ListMotorAdapter listMotorAdapter = new ListMotorAdapter(this);
         listMotorAdapter.setListMotor(list);
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void showRecyclerGrid(){
+    private void showRecyclerGrid() {
         rvCategory.setLayoutManager(new GridLayoutManager(this, 2));
         GridMotorAdapter gridMotorAdapter = new GridMotorAdapter(this);
         gridMotorAdapter.setListMotor(list);
@@ -57,20 +58,23 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void showRecyclerCardView(){
+    private void showRecyclerCardView() {
         rvCategory.setLayoutManager(new LinearLayoutManager(this));
         CardViewMotorAdapter cardViewMotorAdapter = new CardViewMotorAdapter(this);
         cardViewMotorAdapter.setListMotor(list);
         rvCategory.setAdapter(cardViewMotorAdapter);
     }
 
-    private void setActionBarTitle(String title){
+    private void setActionBarTitle(String title) {
         getSupportActionBar().setTitle(title);
 
     }
 
-    private void showSelectedMotor(Motor motor){
-        Toast.makeText(this, "Anda Memilih "+motor.getName(), Toast.LENGTH_SHORT).show();
+    private void showSelectedMotor(Motor motor) {
+        Toast.makeText(this, "Anda Memilih " + motor.getName(), Toast.LENGTH_SHORT).show();
+        Intent moveDetail = new Intent(MainActivity.this, DetailMotorActivity.class);
+        moveDetail.putExtra(DetailMotorActivity.EXTRA_DATA, motor);
+        startActivity(moveDetail);
     }
 
     @Override
@@ -82,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         String title = null;
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.action_list:
                 title = "Mode List";
                 showRecycleList();

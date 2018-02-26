@@ -18,19 +18,18 @@ import java.util.ArrayList;
 
 public class ListMotorAdapter extends RecyclerView.Adapter<ListMotorAdapter.CategoryViewHolder> {
     private Context context;
+    private ArrayList<Motor> listMotor;
 
-    public ArrayList<Motor> getListMotor(){
+    public ListMotorAdapter(Context context) {
+        this.context = context;
+    }
+
+    public ArrayList<Motor> getListMotor() {
         return listMotor;
     }
 
-    public void setListMotor(ArrayList<Motor> listMotor){
+    public void setListMotor(ArrayList<Motor> listMotor) {
         this.listMotor = listMotor;
-    }
-
-    private ArrayList<Motor>listMotor;
-
-    public ListMotorAdapter(Context context){
-        this.context = context;
     }
 
     @Override
@@ -52,20 +51,20 @@ public class ListMotorAdapter extends RecyclerView.Adapter<ListMotorAdapter.Cate
     }
 
     @Override
-    public int getItemCount(){
+    public int getItemCount() {
         return getListMotor().size();
     }
 
-    class CategoryViewHolder extends RecyclerView.ViewHolder{
+    class CategoryViewHolder extends RecyclerView.ViewHolder {
         TextView tvName;
         TextView tvRemarks;
         ImageView imgPhoto;
 
         public CategoryViewHolder(View itemView) {
             super(itemView);
-            tvName = (TextView)itemView.findViewById(R.id.tv_item_name);
-            tvRemarks = (TextView)itemView.findViewById(R.id.tv_item_remarks);
-            imgPhoto = (ImageView)itemView.findViewById(R.id.img_item_photo);
+            tvName = (TextView) itemView.findViewById(R.id.tv_item_name);
+            tvRemarks = (TextView) itemView.findViewById(R.id.tv_item_remarks);
+            imgPhoto = (ImageView) itemView.findViewById(R.id.img_item_photo);
         }
     }
-    }
+}

@@ -12,4 +12,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <TextView
+            style="@style/TextContent.Small.White"
+            android:padding="8dp"
+            android:text="@string/TRIUMPH"
+            android:gravity="center_vertical"
+            android:drawableLeft="@drawable/triumph_collect"
+            android:drawablePadding="4dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:background="#4D000000"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_gravity="bottom"/>
+    </FrameLayout>
+
 </RelativeLayout>

@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         rvCategory = (RecyclerView) findViewById(R.id.rv_category);
         rvCategory.setHasFixedSize(true);
 
+        getSupportActionBar().setTitle("Triumph Motorcycles");
+
         list = new ArrayList<>();
         list.addAll(MotorType.getListMotor());
 
@@ -104,4 +106,5 @@ public class MainActivity extends AppCompatActivity {
         setActionBarTitle(title);
         return super.onOptionsItemSelected(item);
     }
+
 }

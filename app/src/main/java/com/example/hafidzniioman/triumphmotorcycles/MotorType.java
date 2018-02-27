@@ -13,9 +13,9 @@ public class MotorType {
             {"Scrambler", "The much loved modern classic and a genuine style icon",
                     "https://auto.ndtvimg.com/bike-images/colors/triumph/street-scrambler/triumph-street-scrambler-jet-black.png?v=9"},
             {"Street Twin Range", "Our Most contemporary, fun and accessible Bonneville, powered by a thrilling new 900cc HT engine",
-                    "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Presiden_Sukarno.jpg/418px-Presiden_Sukarno.jpg"},
+                    "https://hertstriumph.co.uk/dbimages/image3790797--1507981863.png"},
             {"Tiger Explorer", "The Real Adventure starts here",
-                    "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Presiden_Sukarno.jpg/418px-Presiden_Sukarno.jpg"},
+                    "https://static1.bikedekho.com/upload/userfiles/images/d9f907c221eef8eae4635a806f7faab3.jpg"},
     };
 
     public static ArrayList<Motor> getListMotor() {
